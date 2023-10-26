@@ -44,7 +44,7 @@ const UserRegister = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setMessage("");
-        });
+        }, 2500);
         return () => {
             clearTimeout(timer);
         };
