@@ -52,7 +52,6 @@ const UserRegister = () => {
     return (
         <div className={Style.Wapper}>
             <div>
-                {message && <Notification message={message} />}
                 <h2 className={Style.register}>Đăng Ký</h2>
                 <div className={Style.sideLogin}></div>
                 <form className={Style.loginForm} onSubmit={handleSubmit}>
@@ -136,6 +135,7 @@ const UserRegister = () => {
                     </div>
                 </div>
             )}
+            {message && <Notification message={message} />}
         </div>
     );
 };
