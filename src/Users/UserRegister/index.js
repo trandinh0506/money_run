@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Style from "./UserRegister.module.css";
 import axios from "axios";
 import Loading from "../../Img/Loading.gif";
+import Notification from "../../Notification";
 const UserRegister = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -10,6 +11,8 @@ const UserRegister = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [pendding, setPendding] = useState(false);
+    const [message, setMessage] = useState("");
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password !== confirmPassword)
@@ -23,13 +26,33 @@ const UserRegister = () => {
                     email,
                 })
                 .then((response) => {
+                    if (response.data.success) {
+                        navigate("/users");
+                    } else {
+                        setMessage(response.data.message);
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                    setMessage("Lỗi máy chủ!");
+                })
+                .finally(() => {
                     setPendding(false);
                 });
         }
     };
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setMessage("");
+        });
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [message]);
     return (
         <div className={Style.Wapper}>
             <div>
+                {message && <Notification message={message} />}
                 <h2 className={Style.register}>Đăng Ký</h2>
                 <div className={Style.sideLogin}></div>
                 <form className={Style.loginForm} onSubmit={handleSubmit}>
