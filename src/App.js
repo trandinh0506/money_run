@@ -10,7 +10,13 @@ import UserDashBoard from "./Users/UserDashBoard";
 import UserSettings from "./Users/UserSettings";
 import ViewChart from "./Spendings/ViewChart";
 import Cache from "./Cache";
+import { useEffect } from "react";
+import axios from "axios";
+import SERVERHOST from "./serverhost";
 function App() {
+    useEffect(()=>{
+        axios.get(`${SERVERHOST}/wakeup`);
+    },[])
     return (
         <div className="App">
             
