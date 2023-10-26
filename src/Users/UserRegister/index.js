@@ -4,6 +4,7 @@ import Style from "./UserRegister.module.css";
 import axios from "axios";
 import Loading from "../../Img/Loading.gif";
 import Notification from "../../Notification";
+import SERVERHOST from "../../serverhost";
 const UserRegister = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -20,7 +21,7 @@ const UserRegister = () => {
         else {
             setPendding(true);
             axios
-                .post("http://localhost:8000/users/register", {
+                .post(`${SERVERHOST}/users/register`, {
                     username,
                     password,
                     email,
