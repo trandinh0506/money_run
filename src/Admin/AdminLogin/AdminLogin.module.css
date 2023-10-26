@@ -1,0 +1,49 @@
+.loginForm {
+    max-width: 300px;
+    margin: auto;
+   
+    animation: dropdown .5s linear forwards;
+  }
+  
+  .inputContainer {
+    margin-bottom: 10px;
+  }
+  
+  .label {
+    margin-bottom: 5px;
+  }
+  
+  .inputField {
+    padding: 5px;
+    margin-left: 5px;
+    
+  }
+  
+  .submitButton {
+    position: relative;
+    padding: 10px;
+    background-color: lightblue;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    left: 40%;
+  }
+.heading2 {
+    text-align: center;
+}
+
+@keyframes dropdown {
+    0% {
+        transform: translateY(-200px);
+      }
+      33% {
+        transform: translateY(-100px);
+      }
+      66% {
+        transform: translateY(0px);
+      }
+      100% {
+        transform: translateY(100px);
+      }
+    }

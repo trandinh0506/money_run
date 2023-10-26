@@ -1,0 +1,93 @@
+.Wapper {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../Img/backgroundLogin.png');
+    background-size: cover;
+    background-position: center;
+}
+.sideLogin {
+    position: fixed;
+    top: 100px;
+    left: 50px;
+    width: 65%;
+    height: 100%;
+    background-image: url('../../Img/sideLogin.png');
+    background-repeat: no-repeat;
+
+}
+.welcomeBack {
+    position: absolute;
+    left: 70%;
+    top: 15%;
+    z-index: 1;
+}
+.loginForm {
+    position: absolute;
+    left: 70%;
+    top: 30%;
+    user-select: none;
+    
+}
+.input {
+    background-color: transparent;
+    border: none;
+    padding: none;
+    border-bottom: 1px solid black; 
+}
+.input:focus {
+    background-color: transparent;
+    border: none;
+    padding: none;
+    border-bottom: 2px solid black; 
+    outline: none;
+}
+.usernameWapper {
+    margin-bottom: 25px;
+}
+.btnWapper {
+    margin-top: 25px;
+}
+.btnWapper button {
+    width: 180px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.createAccount {
+    display: inline-block;
+    width: 180px;
+    height: 30px;
+    text-align: center;
+    font: inherit;
+    cursor: pointer;
+    background-color: buttonface;
+    color: buttontext;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border:  solid black;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  .layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, .8);
+}
+.message_res {
+    position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    
+    
+}

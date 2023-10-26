@@ -1,0 +1,120 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Style from "./UserRegister.module.css";
+import axios from "axios";
+import Loading from "../../Img/Loading.gif";
+const UserRegister = () => {
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [pendding, setPendding] = useState(false);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (password !== confirmPassword)
+            alert("mật khẩu không khớp với xác nhận mật khẩu");
+        else {
+            setPendding(true);
+            axios
+                .post("http://localhost:8000/users/register", {
+                    username,
+                    password,
+                    email,
+                })
+                .then((response) => {
+                    setPendding(false);
+                });
+        }
+    };
+    return (
+        <div className={Style.Wapper}>
+            <div>
+                <h2 className={Style.register}>Đăng Ký</h2>
+                <div className={Style.sideLogin}></div>
+                <form className={Style.loginForm} onSubmit={handleSubmit}>
+                    <div className={Style.usernameWapper}>
+                        <label htmlFor="username">Tên tài khoản</label> <br />
+                        <input
+                            className={Style.input}
+                            id="username"
+                            value={username}
+                            onChange={(e) => {
+                                setUsername(e.target.value);
+                            }}
+                            required
+                        />
+                    </div>
+                    <div className={Style.usernameWapper}>
+                        <label htmlFor="email">Email</label> <br />
+                        <input
+                            className={Style.input}
+                            id="email"
+                            value={email}
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                            }}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="password">Mật khẩu</label> <br />
+                        <input
+                            className={Style.input}
+                            id="password"
+                            value={password}
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                            }}
+                            type={showPassword ? "text" : "password"}
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="confirmpassword">
+                            Xác nhận mật khẩu
+                        </label>{" "}
+                        <br />
+                        <input
+                            className={Style.input}
+                            id="confirmpassword"
+                            value={confirmPassword}
+                            onChange={(e) => {
+                                setConfirmPassword(e.target.value);
+                            }}
+                            type={showPassword ? "text" : "password"}
+                            required
+                        />
+                        <br />
+                        <label htmlFor="show" style={{ fontSize: 12 }}>
+                            hiển thị mật khẩu
+                        </label>
+                        <input
+                            type="checkbox"
+                            id="show"
+                            checked={showPassword}
+                            onChange={(e) => {
+                                setShowPassword(e.target.checked);
+                            }}
+                        />
+                    </div>
+                    <div className={Style.btnWapper}>
+                        <button type="submit">Đăng ký</button>
+                    </div>
+                    <span>
+                        Đã có tài khoản? ấn vào{" "}
+                        <Link to="/users/login"> đây</Link>
+                    </span>
+                </form>
+            </div>
+            {pendding && (
+                <div className={Style.layer}>
+                    <div className={Style.message_res}>
+                        <img src={Loading} alt="" />
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default UserRegister;

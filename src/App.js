@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import "./App.css";
+import Welcome from "./Welcome";
+import ErrorPage from "./ErrorPage";
+import AdminLogin from "./Admin/AdminLogin";
+import Admin from "./Admin";
+import UserLogin from "./Users/UserLogin";
+import UserRegister from "./Users/UserRegister";
+import UserDashBoard from "./Users/UserDashBoard";
+import UserSettings from "./Users/UserSettings";
+import ViewChart from "./Spendings/ViewChart";
+import Cache from "./Cache";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Welcome />} />
+                    <Route path="/Cache" element={<Cache />} />
+                    <Route path="/admin/login" element={<AdminLogin />} />
+                    <Route path="/admin/dashboard" element={<Admin />} />
+                    <Route
+                        path="/admin"
+                        element={<Navigate to="/admin/login" />}
+                    />
+                    <Route path="/users/register" element={<UserRegister />} />
+                    <Route path="/users/login" element={< UserLogin />}  />
+                    <Route path="/users/dashboard" element={<UserDashBoard />} />
+                    <Route path="/users/settings" element={<UserSettings />} />
+                    <Route path="/users" element={<Navigate to="/users/dashboard" />} />
+
+                    <Route path="/spendings/viewchart" element={<ViewChart />} />
+
+                    <Route path="*" element={<ErrorPage />}></Route>
+                </Routes>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;
