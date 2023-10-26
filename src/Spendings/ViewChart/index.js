@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import SERVERHOST from "../../serverhost";
+import Notification from "../../Notification";
 import Style from "./ViewChart.module.css";
 import Loading from "../../Img/Loading.gif";
 import { useRef } from "react";
@@ -17,6 +18,7 @@ const ViewChart = () => {
     const [options, setOptions] = useState([]);
     const [choose, setChoose] = useState("00");
     const [pendding, setPendding] = useState(true);
+    const [message, setMessage] = useState("");
     useEffect(() => {
         if (!token) navigate("/users/login");
     }, [navigate, token]);
@@ -28,9 +30,17 @@ const ViewChart = () => {
         axios
             .get(`${SERVERHOST}/users/spendings/get`, { headers })
             .then((response) => {
-                console.log(response.data);
+                if (response.data.success) setData(response.data.spendings);
+                else {
+                    setMessage(response.data.message);
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+                setMessage("Lỗi máy chủ!");
+            })
+            .finally(() => {
                 setPendding(false);
-                setData(response.data.spendings);
             });
     }, [token]);
 
@@ -166,6 +176,7 @@ const ViewChart = () => {
     }, [choose, options]);
     return (
         <div className={Style.Wapper}>
+            {message && <Notification message={message} />}
             {!pendding && data[0] && (
                 <div>
                     <Link className={Style.back_to_dashboard} to="/users">
