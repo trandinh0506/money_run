@@ -1,2 +1,2 @@
-const SERVERHOST = "http://localhost:8000";
+const SERVERHOST = "https://spending-management.onrender.com";
 export default SERVERHOST;
