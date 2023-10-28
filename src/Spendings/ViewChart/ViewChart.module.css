@@ -45,9 +45,12 @@
     position: fixed;
     top: 2%;
     right: 5%;
-    font-size: 20px;
+    font-size: 22px;
     overflow-y: auto;
     max-height: 600px;
+}
+.show_detail li {
+    margin-bottom: 4px;
 }
 .back_to_dashboard {
     display: inline-block;
