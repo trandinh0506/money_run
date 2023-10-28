@@ -236,6 +236,9 @@ const ViewChart = () => {
                                         <span className={Style.description}>
                                             {item.description}
                                         </span>
+                                        <span>
+                                            - {item.amount.toLocaleString()}VND
+                                        </span>
                                     </li>
                                 );
                             })}
