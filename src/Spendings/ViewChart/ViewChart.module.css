@@ -69,6 +69,9 @@
     border:  solid black;
     text-decoration: none;
     font-size: 18px;
+    position: fixed;
+    top: 3%;
+    left: 2%;
 }
 .layer {
     position: fixed;
@@ -93,4 +96,7 @@
     left: 48%;
     transform: translate(-50%, -50%);
     font-family: 'Sofia', cursive;
+}
+.back_to_dashboard:hover {
+    background-color: rgba(0, 128, 0, 0.7);
 }

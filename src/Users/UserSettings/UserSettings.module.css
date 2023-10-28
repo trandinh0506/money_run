@@ -1,0 +1,117 @@
+.Wapper_all {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: lightblue;
+    justify-content: center;
+    
+}
+.Wapper{
+    
+    
+    margin-top: 5%;
+    font-size: 25px;
+    
+}
+
+.layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, .8);
+}
+.message_res {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    
+}
+.category_table {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+.category_table * {
+   margin-left: 5px;
+   margin-top: 10px;
+}
+.add_input {
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    padding: none;
+    border-bottom: 1px solid black; 
+    outline: none;
+}
+.add_input:focus {
+    background-color: transparent;
+    border: none;
+    padding: none;
+    border-bottom: 1px solid black; 
+    outline: none;
+}
+.add_btn {
+    font-size: 18px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+.save {
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.back_to_dashboard {
+    display: inline-block;
+    position: fixed;
+    width: 100px;
+    height: 25px;
+    text-align: center;
+    font: inherit;
+    cursor: pointer;
+    background-color: buttonface;
+    color: buttontext;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border:  solid black;
+    text-decoration: none;
+    font-size: 18px;
+    top: 3%;
+    left: 5%;
+}
+.view_details{
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    font: inherit;
+    cursor: pointer;
+    background-color: buttonface;
+    color: buttontext;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border:  solid black;
+    text-decoration: none;
+    font-size: 18px;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
+.back_to_dashboard:hover {
+    background-color: rgba(0, 128, 0, 0.7);
+}
+.view_details:hover {
+    background-color: rgba(0, 128, 0, 0.7);
+}

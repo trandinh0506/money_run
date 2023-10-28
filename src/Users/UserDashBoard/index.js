@@ -88,6 +88,11 @@ const UserDashBoard = () => {
 
         return () => clearTimeout(timer);
     }, [message]);
+    const handleLogout = () => {
+        document.cookie =
+            "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        navigate("/");
+    };
     return (
         <div>
             {!pendding && (
@@ -164,7 +169,9 @@ const UserDashBoard = () => {
                             />
                         </div>
                         <div>
-                            <button type="submit">Lưu lại!</button>
+                            <button className={Style.save} type="submit">
+                                Lưu lại!
+                            </button>
                         </div>
                     </form>
                     <div className={Style.quotes}>
@@ -179,6 +186,11 @@ const UserDashBoard = () => {
                             {Quote.author}
                             {Quote.author ? "--" : ""}
                         </span>
+                    </div>
+                    <div>
+                        <button className={Style.logout} onClick={handleLogout}>
+                            Đăng xuất
+                        </button>
                     </div>
                     <div>
                         <Link className={Style.settings} to="/users/settings">
