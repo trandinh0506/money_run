@@ -68,6 +68,8 @@ const UserDashBoard = () => {
                     if (res.data.success) {
                         setCategory(res.data.categories[0].category_id);
                         setCategories(res.data.categories);
+                    } else {
+                        navigate("/users/login");
                     }
                 })
                 .catch((err) => {
